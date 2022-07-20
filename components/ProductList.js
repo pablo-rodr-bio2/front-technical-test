@@ -1,10 +1,15 @@
 import Product from "./Product";
 
-export function ProductList(props) {
+export function ProductList({ products }) {
+
   return (
     <>
-      {/* TODO: List of products */}
-      <Product />
+      {products.map(product => 
+        <Product key = {product.id}
+                title={product.title}
+                 description= {product.description}
+                 thumbnail={product.thumbnail} />)}
+      
     </>
   )
 }

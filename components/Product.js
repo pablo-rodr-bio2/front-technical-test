@@ -1,7 +1,15 @@
-export default function Product(props) {
+export default function Product({ title, description, thumbnail}) {
+  
   return (
     <>
-      {/* TODO */}
+
+      <div>
+        {title}
+      </div>
+      <div>
+        {description}
+      </div>
+      <img src={thumbnail}/>
     </>
   )
 }
