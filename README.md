@@ -1,15 +1,11 @@
 
 ## Tareas:
 
-1. Hacer un fork de este repositorio y editar el contenido en vuestro repositorio. El código de esta prueba técnica se tiene que publicar en vuestro fork.
-
 2. Crear la página de búsqueda / listado de productos. Esta página tiene que mostrar 10 productos como máximo. Usa los endpoints de esta [API](https://dummyjson.com/docs/products) para implementar las funcionalidades descritas.
 
 3. Añadir algun elemento distintivo en el componente “producto” según el tamaño del dispositivo
 
 4. Añadir paginación al listado de productos.
-
-5. Si aún te queda tiempo, ¡sorprendenos con alguna otra característica o mejora!
 
 A continuación tienes una captura a modo de ejemplo, pero sientate libre de hacer tu diseño:
 
