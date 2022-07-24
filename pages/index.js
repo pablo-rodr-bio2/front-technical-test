@@ -21,6 +21,7 @@ export default function Home() {
     })
   }, [])
 
+
   const filterProducts = (products, query) => {
     if (query === '') return products
 

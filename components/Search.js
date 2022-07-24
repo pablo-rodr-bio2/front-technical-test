@@ -1,19 +1,28 @@
-import { useState } from "react"
 
-export function Search({  stateChanger }) {
+export function Search({ stateChanger }) {
 
+  const parent = {
+    display: 'flex',
+    flexDirection: 'row'
+  }
+
+  const title = {
+    width: '30%',
+    textAlign: 'center'
+  }
+
+  const barStyle = {
+    width: '70%',
+    margin: '15px 50px 15px'
+  }
 
   return (
-    <>
-      <h1>vinissimus</h1>
-      <div>
-      <input id="searchbar"
-             placeholder="Buscar vino, denominación, uva..."
-             onChange={e => stateChanger(e.target.value)} />
-      </div>
-      <div>
-        
-      </div>
-    </>
+    <div style={parent}>
+      
+        <h1 style={title}>vinissimus</h1>
+        <input style={barStyle}
+          placeholder="Look for names"
+          onChange={e => stateChanger(e.target.value)} />
+    </div>
   )
 }
