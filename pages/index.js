@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   
-  const [products, setProducts] = useState([])
-  const [query, setQuery] = useState('')
+  const [allProducts, setAllProducts] = useState([])
+  const [filteredProducts, setFilteredProducts] = useState([])
 
   const getAll = () => {
     const request = fetch('https://dummyjson.com/products')
@@ -17,26 +17,16 @@ export default function Home() {
   useEffect(() => {
     getAll()
     .then(initialProducts => {
-      setProducts(initialProducts.products)
+      setAllProducts(initialProducts.products)
     })
   }, [])
 
-
-  const filterProducts = (products, query) => {
-    if (query === '') return products
-
-    return products.filter((product) => {
-      const productTitle = product.title.toLowerCase()
-      return productTitle.includes(query)
-    })
-  }
-
-  const filteredProducts = filterProducts(products, query)
+  const productsToShow = filteredProducts.length > 0 ? filteredProducts : allProducts
 
   return (
     <>
-      <Search stateChanger={setQuery}/>
-      <ProductList products={filteredProducts} />
+      <Search setFilteredProducts={setFilteredProducts}/>
+      <ProductList products={productsToShow} />
     </>
   )
 }
