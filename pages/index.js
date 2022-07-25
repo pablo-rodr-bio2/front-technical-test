@@ -1,6 +1,7 @@
 import { ProductList } from "../components/ProductList";
 import { Search } from "../components/Search";
 import { useState, useEffect } from "react";
+import { Pagination } from "../components/Pagination";
 
 export default function Home() {
   
@@ -8,7 +9,7 @@ export default function Home() {
   const [filteredProducts, setFilteredProducts] = useState([])
 
   const getAll = () => {
-    const request = fetch('https://dummyjson.com/products')
+    const request = fetch('https://dummyjson.com/products?limit=9')
     return request.then(
       response => response.json()
     )
@@ -22,11 +23,13 @@ export default function Home() {
   }, [])
 
   const productsToShow = filteredProducts.length > 0 ? filteredProducts : allProducts
+  
 
   return (
     <>
       <Search setFilteredProducts={setFilteredProducts}/>
       <ProductList products={productsToShow} />
+      <Pagination />
     </>
   )
 }

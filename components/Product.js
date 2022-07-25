@@ -5,17 +5,17 @@ export default function Product({ title, description, thumbnail}) {
   const productCard = {
     border: '1px solid rgba(0, 0, 0, 0.05)',
     flexBasis: '30vw',
-    textAlign: 'center'
+    textAlign: 'center',
   }
   return (
     <div style={productCard}>
       <Image
          src={thumbnail} 
          alt={title}
-         width={400}
-         height={250}
+         width={300}
+         height={175}
       />
-      <div>{title}</div>
+      <div><b>{title}</b></div>
       <div>{description}</div>
     </div>
   )
