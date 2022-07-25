@@ -1,1 +1,1 @@
-GET https://dummyjson.com/products
+GET https://dummyjson.com/products/search?q=iphone

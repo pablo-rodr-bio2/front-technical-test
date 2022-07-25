@@ -7,9 +7,11 @@ export default function Home() {
   
   const [allProducts, setAllProducts] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
+  const [skip, setSkip] = useState(0)
+  const [total, setTotal] = useState(0)
 
   const getAll = () => {
-    const request = fetch('https://dummyjson.com/products?limit=9')
+    const request = fetch(`https://dummyjson.com/products?limit=9&skip=${skip}`)
     return request.then(
       response => response.json()
     )
@@ -19,18 +21,19 @@ export default function Home() {
     getAll()
     .then(initialProducts => {
       setAllProducts(initialProducts.products)
+      setTotal(initialProducts.total)
     })
-  }, [])
+  }, [skip])
+
+  
 
   const productsToShow = filteredProducts.length > 0 ? filteredProducts : allProducts
   
-  console.log(filteredProducts.length)
-
   return (
     <>
-      <Search setFilteredProducts={setFilteredProducts}/>
+      <Search setFilteredProducts={setFilteredProducts} setTotal={setTotal}/>
       <ProductList products={productsToShow} />
-      <Pagination />
+      <Pagination nButtons={total} setSkip={setSkip}/>
     </>
   )
 }

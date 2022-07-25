@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function Search({ setFilteredProducts }) {
+export function Search({ setFilteredProducts, setTotal }) {
 
   //styles ON 
   const parent = {
@@ -23,9 +23,12 @@ export function Search({ setFilteredProducts }) {
   }
 
   useEffect(() => {
-    fetch(`https://dummyjson.com/products/search?q=${query}`)
+    fetch(`https://dummyjson.com/products/search?q=${query}&limit=9`)
     .then(res => res.json())
-    .then(filteredProducts => setFilteredProducts(filteredProducts.products))
+    .then(filteredProducts => {
+      setFilteredProducts(filteredProducts.products)
+      setTotal(parseInt(filteredProducts.total))
+    })
   }, [query])
 
   return (
