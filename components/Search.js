@@ -17,9 +17,9 @@ export function Search({ setFilteredProducts }) {
   }
   //styles off 
   
-  const [query, setQuery] = useState()
+  const [query, setQuery] = useState(null)
   const handleQuery = (event) => {
-    setQuery(event.target.value)
+    event.target.value === '' ? setQuery(null) :  setQuery(event.target.value)
   }
 
   useEffect(() => {

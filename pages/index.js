@@ -24,6 +24,7 @@ export default function Home() {
 
   const productsToShow = filteredProducts.length > 0 ? filteredProducts : allProducts
   
+  console.log(filteredProducts.length)
 
   return (
     <>
