@@ -9,11 +9,19 @@ export function Pagination({ nButtons, setSkip }) {
     flexWrap: 'wrap',
     justifyContent: "center",
   }
+
+  const buttonStyle = {
+    borderRadius: "8px",
+    width: "50px",
+    height: "40px",
+    fontSize: "18px",
+    marginTop: "3vh",
+  }
   
   return (
     <div style={paginationStyle}>
       {[...Array(totalButtons)].map((e, i) => {
-        return <button key={i+1} onClick={() => setSkip(i * 9)}> {i+1}</button>
+        return <button style={buttonStyle} key={i+1} onClick={() => setSkip(i * 9)}> {i+1}</button>
       })}
     </div>
   )
