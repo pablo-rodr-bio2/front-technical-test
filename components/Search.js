@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function Search({ setQuery }) {
+export function Search({ setQuery, setSkip }) {
 
   //styles ON 
   const parent = {
@@ -19,18 +19,9 @@ export function Search({ setQuery }) {
   
 
   const handleQuery = (event) => {
-    event.target.value === '' ? setQuery() :  setQuery(event.target.value)
+    setQuery(event.target.value)
+    setSkip(0)
   }
-
-  // const [query, setQuery] = useState(null)
-  // useEffect(() => {
-  //   fetch(`https://dummyjson.com/products/search?q=${query}&limit=9`)
-  //   .then(res => res.json())
-  //   .then(filteredProducts => {
-  //     setFilteredProducts(filteredProducts.products)
-  //     setTotal(parseInt(filteredProducts.total))
-  //   })
-  // }, [query])
 
   return (
     <div style={parent}>      

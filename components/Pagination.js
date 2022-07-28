@@ -15,7 +15,6 @@ export function Pagination({ nButtons, setSkip }) {
       {[...Array(totalButtons)].map((e, i) => {
         return <button key={i+1} onClick={() => setSkip(i * 9)}> {i+1}</button>
       })}
-          
     </div>
   )
 }
